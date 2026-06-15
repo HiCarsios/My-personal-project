@@ -25,7 +25,7 @@ def equal_helper(bst, i):
     z = random.randint(-3,3)
     stat = avg_remain + y**2 + x + 10*z
     proper_remains = bst -stat - ((6-i) * 10)
-    if stat < 0 or proper_remains < 0:
+    if stat < 0 or proper_remains < 0 or stat >250:
         stat = equal_helper(bst,i)
     return stat
 
@@ -39,3 +39,10 @@ def equal_random(value = 555):
     base_stats.append(base_total)
     random.shuffle(base_stats)
     return base_stats
+
+
+def view_stats(stats):
+    bst =  sum(stats)
+    sight = {"bst":bst, "HP":stats[0], "ATK":stats[1], "DEF":stats[2], "SPA":stats[3], "SPD":stats[4], "SPE":stats[5]}
+    print(sight)
+    return

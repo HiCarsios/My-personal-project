@@ -1,4 +1,5 @@
 from stat_randomize import *
+from poke_randomizer import *
 
 def poke_exists():
     pokeone = balanced_stats()
@@ -38,6 +39,13 @@ def test_equal(total = 555):
                 extreme +=1
     return{"with total": total, "game breakers":breaking, "extremes":extreme}
 
+def basic_randomizer():
+    pokeone = balanced_stats()
+    poketwo = balanced_stats()
+    pokethree= balanced_stats()
+    view_stats(pokeone)
+    view_stats(poketwo)
+    view_stats(pokethree)
 
 
 def main():
@@ -52,5 +60,7 @@ def main():
     print(arceus)
     print(azuril)
     print (arcanine)
+    basic_randomizer()
+    
 
 main()
