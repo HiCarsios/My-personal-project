@@ -61,6 +61,19 @@ def main():
     print(azuril)
     print (arcanine)
     basic_randomizer()
-    
+    nationaldex = build_pokedex()
+    Scarletdex = build_pokedex("ScarVi")
+    Sworddex = build_pokedex("SwoSh", repeat = False)
+    #print(nationaldex)
+    #print(Scarletdex)
+    #print(Sworddex)
+    #These above lines are commented out to not distract you with a giant wall of text
+    national_poke = random_poke(nationaldex)
+    scarvi_poke = random_poke(Scarletdex)
+    Swo_poke = random_poke(Sworddex)
+    print(national_poke, scarvi_poke, Swo_poke)
+    print(Scarletdex[scarvi_poke])
+    step_poke = convert_poke_data(nationaldex[national_poke])
+    print(step_poke)
 
 main()
