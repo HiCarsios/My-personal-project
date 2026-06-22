@@ -46,3 +46,16 @@ def view_stats(stats):
     sight = {"bst":bst, "HP":stats[0], "ATK":stats[1], "DEF":stats[2], "SPA":stats[3], "SPD":stats[4], "SPE":stats[5]}
     print(sight)
     return
+
+def shuffle_stats(poke):
+    #data must have gone through convert poke already
+    pokestats = [poke['HP'], poke['Attack'], poke['Defense'], 
+    poke['Sp.Attack'], poke['Sp.Defense'], poke['Speed']]
+    random.shuffle(pokestats)
+    poke['HP'] = pokestats[0]
+    poke['Attack'] = pokestats[1]
+    poke['Defense'] = pokestats[2]
+    poke['Sp.Attack'] = pokestats[3]
+    poke['Sp.Defense'] = pokestats[4]
+    poke['Speed'] = pokestats[5]
+    return poke

@@ -1,5 +1,7 @@
 from stat_randomize import *
 from poke_randomizer import *
+from type_randomizer import *
+from ability_randomizer import *
 
 def poke_exists():
     pokeone = balanced_stats()
@@ -49,18 +51,17 @@ def basic_randomizer():
 
 
 def main():
-    poke_exists()
-    balanced = test_balance()
-    print(balanced)
-    legend = test_equal(680)
-    arceus = test_equal(720)
-    azuril = test_equal(180)
-    arcanine = test_equal()
-    print(legend)
-    print(arceus)
-    print(azuril)
-    print (arcanine)
-    basic_randomizer()
+    #poke_exists()
+    #balanced = test_balance()
+    #print(balanced)
+    #legend = test_equal(680)
+    #arceus = test_equal(720)
+    #azuril = test_equal(180)
+    #arcanine = test_equal()
+    #print(legend)
+    #print(arceus)
+    #print(azuril)
+    #print (arcanine)
     nationaldex = build_pokedex()
     Scarletdex = build_pokedex("ScarVi")
     Sworddex = build_pokedex("SwoSh", repeat = False)
@@ -74,6 +75,23 @@ def main():
     print(national_poke, scarvi_poke, Swo_poke)
     print(Scarletdex[scarvi_poke])
     step_poke = convert_poke_data(nationaldex[national_poke])
+    scarv_poke = convert_poke_data(Scarletdex[scarvi_poke])
     print(step_poke)
+    #shuf = shuffle_stats(step_poke)
+    #print(shuf)
+    types = rand_type(True)
+    typestwo = rand_type(True, True)
+    print(types, typestwo)
+    statchange = balanced_stats()
+    step_poke = change_poke_data(step_poke, types = types)
+    scarv_poke = change_poke_data(scarv_poke, stats = statchange, types = typestwo)
+    #print(step_poke)
+    print(scarv_poke)
+    every_abilty = build_ability_list()
+    twf_abilities = build_ability_list(cringe = True, double = True, unavail = True, nega = True)
+    starter_ables = random_ability(every_abilty, 3)
+    print(starter_ables)
+    scarv_poke = change_poke_data(scarv_poke, abilities = starter_ables)
+    print(scarv_poke)
 
 main()

@@ -56,3 +56,23 @@ def convert_poke_data(poke):
     if not poke['Type 2']:
         Type = poke.pop("Type 2")
     return poke
+
+def change_poke_data(poke, stats = False, types = False, abilities = False):
+    #poke must have gone through the convert_poke_data function first
+    if stats:
+        poke['HP'] = stats[0]
+        poke['Attack'] = stats[1]
+        poke['Defense'] = stats[2]
+        poke['Sp.Attack'] = stats[3]
+        poke['Sp.Defense'] = stats[4]
+        poke['Speed'] = stats[5]
+        poke['BST'] = sum(stats)
+    if types:
+        poke['Type 1'] = types[0]
+        if types[1]:
+            poke['Type 2'] = types[1]
+    if abilities:
+        for i in range(len(abilities)):
+            abilityNo = f"Ability {i+1}"
+            poke[abilityNo] = abilities[i]
+    return poke
