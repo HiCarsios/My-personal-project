@@ -1,7 +1,7 @@
 import random
 
 
-def balanced_stats():
+def balanced_stats(stats = None):
     base_stat =[]
     for i in range(6):
         x = random.randint(0,10)
@@ -11,7 +11,7 @@ def balanced_stats():
         base_stat.append(stat)
     return base_stat
 
-def pure_random():
+def pure_random(stats = None):
     base_stat = []
     for i in range(6):
         stat = random.randint(10,230)
