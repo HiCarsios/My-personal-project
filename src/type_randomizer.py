@@ -5,12 +5,12 @@ types = ["Rock", "Water", "Electric", "Grass", "Poison", "Psychic",
 "Steel", "Ice", "Dragon", "Fairy", "Dark"]
 
 def rand_type(Dualtype, weighted = False):
-    typeno = 1
-    if Dualtype:
-        typeno = 2
+    typeno = Dualtype
     if weighted:
         choice = random.choices(types, weights =[80, 162, 75, 133, 89,111, 90, 79, 115, 94, 134, 76, 86, 81, 60, 78, 72, 84], k = typeno)
     else:
         choice = random.sample(types, k =typeno)
     return choice
 
+def one_or_two():
+    return random.randint(1,2)

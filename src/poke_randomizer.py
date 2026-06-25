@@ -1,5 +1,7 @@
 import random 
 import csv
+import json
+import os
 from pathlib import Path 
 
 def load_pokemon(filename, game = None, repeat=True):
@@ -69,10 +71,21 @@ def change_poke_data(poke, stats = False, types = False, abilities = False):
         poke['BST'] = sum(stats)
     if types:
         poke['Type 1'] = types[0]
-        if types[1]:
+        if len(types) > 1:
             poke['Type 2'] = types[1]
+        if len(types) == 1 and 'Type 2' in poke:
+            Type = poke.pop('Type 2')
     if abilities:
         for i in range(len(abilities)):
             abilityNo = f"Ability {i+1}"
             poke[abilityNo] = abilities[i]
     return poke
+
+
+def save_pokedex(pokedex):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    filepath = os.path.join(project_root, "data", "custom_pokedex")
+    with open(filepath, "w") as f:
+        json.dump(pokemon_dict, f, indent=4)
+    print(f"Data successfully saved to data folder")

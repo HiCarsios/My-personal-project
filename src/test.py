@@ -65,7 +65,7 @@ def main():
     nationaldex = build_pokedex()
     Scarletdex = build_pokedex("ScarVi")
     Sworddex = build_pokedex("SwoSh", repeat = False)
-    #print(nationaldex)
+    print(nationaldex)
     #print(Scarletdex)
     #print(Sworddex)
     #These above lines are commented out to not distract you with a giant wall of text
